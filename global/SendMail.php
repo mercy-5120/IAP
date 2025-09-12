@@ -31,7 +31,6 @@ try {
     $mail->Body    = $mailCnt['body'];
     // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-
     $mail->send();
     echo 'Message has been sent';
 } catch (Exception $e) {
@@ -40,4 +39,3 @@ try {
 
     }
 }
-?>

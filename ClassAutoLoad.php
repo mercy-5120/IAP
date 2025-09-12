@@ -11,11 +11,6 @@ spl_autoload_register(function ($class_name) use ($directory) {
     }
 });
 // Now you can create instances of classes without manually including their files
-//$sample = new sample();
-//$layout = new layouts();
-//$forms = new forms();
-
 $ObjSendMail = new SendMail();
 $ObjLayout = new layouts();
 $ObjForm = new forms();
-

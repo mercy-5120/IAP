@@ -1,53 +1,22 @@
 <?php
+require 'conf.php';
 
-//Load Composer's autoloader (created by composer, not included with PHPMailer)
+$directory = array("global", "layouts", "forms", "Proc");
 
-require_once 'conf.php';
-
-$directories = ["Forms", "Global", 
-                "Layouts"];
-
-spl_autoload_register(function ($className) use ($directories) {
-    foreach ($directories as $directory) {
-        $filePath = __DIR__  . "/$directory/" . $className . '.php';
-        if (file_exists($filePath)) {
-            require_once $filePath;
-            return;
+spl_autoload_register(function ($class_name) use ($directory) {
+    foreach ($directory as $dir) {
+        if (file_exists($dir . '/' . $class_name . '.php')) {
+            require $dir . '/' . $class_name . '.php';
         }
     }
 });
 
+// Now you can create instances of classes without manually including their files
 $ObjSendMail = new SendMail();
-$ObjForm = new forms();
 $ObjLayout = new layouts();
+$ObjForm = new forms();
+$ObjAuth = new auth();
+$ObjFncs = new fncs();
 
-// Database connection
-$host = "localhost";
-$user = "root";
-$pass = "root";   // your MariaDB password 
-$dbname = "iap";  // your database name
 
-$conn = new mysqli($host, $user, $pass, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Fetch users in ascending order by name
-$sql = "SELECT id, name, email FROM users ORDER BY name ASC";
-$result = $conn->query($sql);
-
-echo "<h2>Registered Users</h2>";
-
-if ($result->num_rows > 0) {
-    echo "<ol>";
-    while ($row = $result->fetch_assoc()) {
-        echo "<li>" . htmlspecialchars($row['name']) . " (" . htmlspecialchars($row['email']) . ")</li>";
-    }
-    echo "</ol>";
-} else {
-    echo "<p>No users registered yet.</p>";
-}
-
-$conn->close();
-?>
+$ObjAuth->signup($conf, $ObjFncs, $lang, $ObjSendMail);

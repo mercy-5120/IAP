@@ -43,7 +43,7 @@ class forms {
     <label for="exampleInputPassword1" class="form-label">Password</label>
     <input type="password" class="form-control" id="exampleInputPassword1">
   </div>
-          <?php $this->submit_button("Sign In", "signin"); ?> <a href="signup.php">Don't have an account? Sign up</a>
+          <?php $this->submit_button("Sign In", "signin"); ?> <a href="signup.php">Don't have an account? Register here</a>
 </form>
         <?php
     }

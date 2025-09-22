@@ -1,15 +1,18 @@
 <?php
 
-$lang['ver_reg_subj'] = "Account Activation on my site";
-$lang['ver_reg_subj'] = "
+//Subject
+$lang['ver_reg_subj'] = "Request for Account Activation on my Site";
+//Body
+$lang['ver_reg_body'] = "
 Hello {{fullname}},
 You requested an account on {{site_name}}. 
 Your activation code is below:
 
 {{activation_code}}
 
-Regards,
-System Admin
+Kind Regards,
+System Administrator
 {{site_name}}
 
 ";
+?>

@@ -21,8 +21,13 @@ require_once 'Lang/' . $conf['site_lang'] . '.php';
 $conf['DB_TYPE'] = 'mysqli';
 $conf['DB_HOST'] = 'localhost';
 $conf['DB_USER'] = 'root';
-$conf['DB_PASS'] = '';
+$conf['DB_PASS'] = 'root';
 $conf['DB_NAME'] = 'iap';
+
+
+
+$conf['site_url'] = 'http://localhost/IAP2.2/IAP';
+
 
 // Email configuration
 $conf['mail_type'] = 'smtp'; // mail or smtp
@@ -31,6 +36,20 @@ $conf['smtp_user'] = 'example@gmail.com'; // SMTP Username
 $conf['smtp_pass'] = 'secret'; // SMTP Password
 $conf['smtp_port'] = 465; // SMTP Port - 587 for tls, 465 for ssl
 $conf['smtp_secure'] = 'ssl'; // Encryption - ssl or tls
+
+try {
+    $pdo = new PDO(
+        "mysql:host={$conf['DB_HOST']};dbname={$conf['DB_NAME']}",
+        $conf['DB_USER'],
+        $conf['DB_PASS']
+    );
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully to {$conf['DB_NAME']}";
+} catch (PDOException $e) {
+    die("DB Connection failed: " . $e->getMessage());
+}
+
+
 
 // Valid domain
 $conf['valid_domain'] = ['gmail.com', 'techacademy.com', 'yahoo.com', 'outlook.com', 'strathmore.edu'];

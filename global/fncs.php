@@ -20,3 +20,4 @@ class fncs{
         return null;
     }
 }
+?>

@@ -10,9 +10,9 @@ class auth{
 
     // Signup function
     public function signup($conf, $ObjFncs, $lang, $ObjSendMail){
-        // Signup logic here
+        // Signup 
         if(isset($_POST['signup'])){
-            $errors = array(); // Initialize an array to hold error messages
+            $errors = array(); 
 
             $fullname = $_SESSION['fullname'] = ucwords(strtolower($_POST['fullname']));
             $email = $_SESSION['email'] = strtolower($_POST['email']);
@@ -31,7 +31,7 @@ class auth{
             // Check if email domain is valid
             $domain = substr(strrchr($email, "@"), 1);
             if (!in_array($domain, $conf['valid_domain'])) {
-                $errors['mailDomain_error'] = "Invalid email domain. Please use a valid email address.";
+                $errors['mailDomain_error'] = "Invalid email domain. Enter a valid email address.";
             }
 
             // Verify password length
@@ -39,9 +39,7 @@ class auth{
                 $errors['password_length_error'] = "Password must be at least " . $conf['valid_password_length'] . " characters long";
             }
 
-            // Check to see if email already exists in the database
 
-            // If there are errors, store them in session and redirect back to signup page
             if (!count($errors)) {
 
                 $mail_variables = [
@@ -60,10 +58,9 @@ class auth{
                     'body' => nl2br($this->bindTemplateVars($lang['ver_reg_body'], $mail_variables))
                 ]);
 
-                // No errors, proceed with signup (e.g., store user in database)
                 // die($fullname." ".$email." ".$password);
                 // Clear session variables after successful signup
-                $ObjFncs->setMsg('msg', 'Sign up successful! Please check your email for verification instructions.', 'success');
+                $ObjFncs->setMsg('msg', 'You have successfully signed up! Please check your email for verification instructions.', 'success');
 
                 unset($_SESSION['fullname']);
                 unset($_SESSION['email']);
@@ -75,6 +72,6 @@ class auth{
         }
     }
     public function signin(){
-        // Signin logic here
     }
 }
+?>

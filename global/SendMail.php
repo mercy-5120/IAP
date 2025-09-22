@@ -1,6 +1,8 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';  
+
+require __DIR__ . '/../Plugins/PHPMailer/vendor/autoload.php';
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -9,7 +11,6 @@ use PHPMailer\PHPMailer\Exception;
 class SendMail{
     public function Send_Mail($conf, $mailCnt) {
 
-//Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
 
 try {
@@ -21,7 +22,11 @@ try {
     $mail->Username   = $conf['smtp_user'];                     //SMTP username
     $mail->Password   = $conf['smtp_pass'];                     //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = $conf['smtp_port'];                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    $mail->Port       = $conf['smtp_port']; 
+    
+    $mail->SMTPDebug = 3; 
+$mail->Debugoutput = 'html';
+//TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
 
 
@@ -43,3 +48,4 @@ try {
 
     }
 }
+?>

@@ -28,7 +28,7 @@ class layouts {
                <div class="collapse navbar-collapse" id="navbarsExample05">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                      <li class="nav-item"> <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>" href="./">Home</a> </li>
-                     <li class="nav-item"> <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'signup.php') ? 'active' : ''; ?>" href="signup.php">Sign Up</a> </li>
+                     <li class="nav-item"> <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'register.php') ? 'active' : ''; ?>" href="register.php">Register</a> </li>
                      <li class="nav-item"> <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'signin.php') ? 'active' : ''; ?>" href="signin.php">Sign In</a> </li>
                   </ul>
                   <form role="search"> <input class="form-control" type="search" placeholder="Search" aria-label="Search"> </form>
@@ -43,8 +43,8 @@ class layouts {
             <div class="p-1 mb-4 bg-body-tertiary rounded-3">
                <div class="container-fluid py-1">
                   <h1 class="display-5 fw-bold">Welcome to <?php echo $conf['site_name']; ?></h1>
-                  <p class="col-md-8 fs-4">Check out the examples below for how you can remix and restyle it to your liking.</p>
-                  <button class="btn btn-primary btn-lg" type="button">Apply Now</button> 
+                  <p class="col-md-8 fs-4">Take the first step toward your future by applying today. Our programs are designed to equip you with the skills, knowledge, and support you need to achieve your goals.</p>
+                  <button class="btn btn-primary btn-lg" type="button">Apply Here</button> 
                </div>
             </div>
     <?php
@@ -54,16 +54,16 @@ class layouts {
             <div class="row align-items-md-stretch">
                <div class="col-md-6">
                   <div class="h-100 p-5 text-bg-dark rounded-3">
-                     <h2>Change the background</h2>
-                     <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
-                     <button class="btn btn-outline-light" type="button">Example button</button> 
+                     <h2>Events Around Campus</h2>
+                     <p>Stay updated with the latest events happening around campus. Join us for workshops, seminars, and networking opportunities that will enhance your learning experience.</p>
+                     <button class="btn btn-outline-light" type="button">View Events</button> 
                   </div>
                </div>
                <div class="col-md-6">
                   <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-                     <h2>Add borders</h2>
-                     <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
-                     <button class="btn btn-outline-secondary" type="button">Example button</button> 
+                     <h2>Check Courses</h2>
+                     <p>Explore our wide range of courses designed to help you build skills and achieve your goals. Browse our Courses Page to find the program that’s right for you, then apply online to start your journey with us.</p>
+                     <button class="btn btn-outline-secondary" type="button">Check Courses</button> 
                   </div>
                </div>
             </div>
@@ -74,14 +74,14 @@ class layouts {
             <div class="row align-items-md-stretch">
                <div class="col-md-6">
                   <div class="h-100 p-5 text-bg-dark rounded-3">
-<?php if(basename($_SERVER['PHP_SELF']) == 'signup.php'){$ObjForm->signup($conf, $ObjFncs); }else{$ObjForm->signin($conf, $ObjFncs); } ?>
+<?php if(basename($_SERVER['PHP_SELF']) == 'register.php'){$ObjForm->signup($conf, $ObjFncs); }else{$ObjForm->signin($conf, $ObjFncs); } ?>
                   </div>
                </div>
                <div class="col-md-6">
                   <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-                     <h2>Add borders</h2>
-                     <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
-                     <button class="btn btn-outline-secondary" type="button">Example button</button> 
+                     <h2>Check Courses</h2>
+                     <p>Explore our wide range of courses designed to help you build skills and achieve your goals. Browse our Courses Page to find the program that’s right for you, then apply online to start your journey with us.</p>
+                     <button class="btn btn-outline-secondary" type="button">Check Courses</button> 
                   </div>
                </div>
             </div>

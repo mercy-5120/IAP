@@ -20,3 +20,4 @@ $ObjFncs = new fncs();
 
 
 $ObjAuth->signup($conf, $ObjFncs, $lang, $ObjSendMail);
+?>
